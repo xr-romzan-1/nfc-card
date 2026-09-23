@@ -1,59 +1,33 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#1769e8">
-<meta name="description" content="XR ROMZAN Digital Card">
-<title>XR ROMZAN | Digital Card</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>XR ROMZAN - Digital Business Card</title>
 <style>
-*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:#eef3ff;color:#101828}
-main{max-width:440px;margin:auto;min-height:100vh;background:#eef3ff;overflow:hidden}
-.hero{height:260px;position:relative;background:linear-gradient(145deg,#1769e8,#6d8ff5);overflow:visible}
-.hero:before{content:"";position:absolute;width:260px;height:260px;right:-90px;top:-110px;border-radius:50%;background:#fff2}
-.hero:after{content:"";position:absolute;width:180px;height:180px;left:-80px;bottom:-90px;border-radius:50%;background:#fff2}
-.share{position:absolute;z-index:2;right:16px;top:16px;width:44px;height:44px;border:0;border-radius:50%;background:#fff;color:#1769e8;font-size:22px;box-shadow:0 4px 14px #0002}
-.avatar{position:absolute;z-index:2;left:50%;bottom:-68px;transform:translateX(-50%);width:136px;height:136px;border-radius:50%;object-fit:cover;border:7px solid white;box-shadow:0 6px 20px #0003}
-.content{text-align:center;padding:90px 22px 35px}
-h1{font-size:29px;margin:0 0 8px}.bio{color:#667085;font-size:14px;margin:0 auto 22px;line-height:1.5}
-.save{display:block;background:#1769e8;color:#fff;text-decoration:none;padding:15px;border-radius:30px;font-weight:800;font-size:16px;box-shadow:0 8px 20px #1769e84d}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-top:22px}.item{text-decoration:none;color:#101828;font-size:11px;font-weight:700}
-.ico{height:70px;border-radius:21px;background:white;display:flex;align-items:center;justify-content:center;font-size:32px;box-shadow:0 5px 14px #0001}.item span{display:block;margin-top:7px}
-.footer{margin-top:25px;color:#98a2b3;font-size:11px;line-height:1.5}
-.toast{position:fixed;left:50%;bottom:22px;transform:translate(-50%,80px);background:#101828;color:white;padding:11px 16px;border-radius:22px;font-size:13px;transition:.25s}.toast.show{transform:translate(-50%,0)}
+body{margin:0;font-family:Arial,sans-serif;background:linear-gradient(135deg,#111827,#2563eb);min-height:100vh;display:flex;justify-content:center;align-items:center;padding:20px}
+.card{width:100%;max-width:420px;background:white;border-radius:24px;padding:28px 22px;text-align:center;box-shadow:0 15px 45px rgba(0,0,0,.25)}
+.avatar{width:130px;height:130px;border-radius:50%;object-fit:cover;border:5px solid #2563eb}
+h1{margin:15px 0 8px;color:#111827}.bio{color:#6b7280;margin-bottom:22px}
+.buttons{display:grid;gap:11px}a{display:block;text-decoration:none;padding:13px;border-radius:12px;background:#f3f4f6;color:#111827;font-weight:600}.save{background:#2563eb;color:white}
+.footer{margin-top:22px;font-size:12px;color:#9ca3af}
 </style>
 </head>
 <body>
-<main>
-<section class="hero">
-<button class="share" onclick="shareCard()">↗</button>
-<img class="avatar" src="assets/profile.jpg" alt="XR ROMZAN">
-</section>
-<section class="content">
+<div class="card">
+<img class="avatar" src="profile.jpg" alt="XR ROMZAN">
 <h1>XR ROMZAN</h1>
 <p class="bio">Connect anyone anywhere with my Digital Business Card</p>
-<a class="save" href="xr-romzan.vcf" download>Save Contact</a>
-<div class="grid">
-<a class="item" href="https://facebook.com/" target="_blank"><div class="ico">f</div><span>Facebook</span></a>
-<a class="item" href="https://instagram.com/" target="_blank"><div class="ico">◎</div><span>Instagram</span></a>
-<a class="item" href="mailto:rsromzan00@gmail.com"><div class="ico">✉</div><span>Email</span></a>
-<a class="item" href="tel:+8801973119049"><div class="ico">☎</div><span>Phone</span></a>
-<a class="item" href="https://wa.me/8801973119049" target="_blank"><div class="ico">◔</div><span>WhatsApp</span></a>
-<a class="item" href="https://linkedin.com/" target="_blank"><div class="ico">in</div><span>LinkedIn</span></a>
+<div class="buttons">
+<a class="save" href="xr-romzan.vcf" download>📱 Save Contact</a>
+<a href="https://facebook.com/" target="_blank">Facebook</a>
+<a href="https://instagram.com/" target="_blank">Instagram</a>
+<a href="mailto:rsromzan00@gmail.com">✉️ Email</a>
+<a href="tel:+8801973119049">📞 Phone</a>
+<a href="https://wa.me/8801973119049" target="_blank">💬 WhatsApp</a>
+<a href="https://linkedin.com/" target="_blank">LinkedIn</a>
 </div>
-<div class="footer">Open this page from your NFC tag or QR code.</div>
-</section>
-</main>
-<div class="toast" id="toast"></div>
-<script>
-async function shareCard(){
- const data={title:"XR ROMZAN | Digital Card",text:"Connect with XR ROMZAN",url:location.href};
- try{
-  if(navigator.share) await navigator.share(data);
-  else {await navigator.clipboard.writeText(location.href); show("Link copied");}
- }catch(e){}
-}
-function show(t){let x=document.getElementById("toast");x.textContent=t;x.classList.add("show");setTimeout(()=>x.classList.remove("show"),1600)}
-</script>
+<p class="footer">Open this page from your NFC tag or QR code.</p>
+</div>
 </body>
 </html>
